@@ -118,7 +118,14 @@
         let blog = $("#inputblog input").val();
         let image = $("#inputimageurl input").val();
 
-        console.log(name, mbti, goal, bt, blog, image);
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("mbti", mbti);
+        sessionStorage.setItem("goal", goal);
+        sessionStorage.setItem("bt", bt);
+        sessionStorage.setItem("blog", blog);
+        sessionStorage.setItem("image", image);
+
+        window.location.href = "./members.html";
       }
     </script>
   </head>

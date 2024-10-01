@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>!손말이고기튀김!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 
@@ -67,6 +68,18 @@
         color: #6799ff;
       }
     </style>
+    <script>
+      $(document).ready(function () {
+        let name = sessionStorage.getItem("name");
+        let mbti = sessionStorage.getItem("mbti");
+        let goal = sessionStorage.getItem("goal");
+        let bt = sessionStorage.getItem("bt");
+        let blog = sessionStorage.getItem("blog");
+        let image = sessionStorage.getItem("image");
+
+        //추후 카드 만드신거에 따라서 카드 추가하는 코드만 작성하면 끝!
+      });
+    </script>
   </head>
   <body>
     <div class="header">
