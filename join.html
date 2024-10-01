@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>!손말이고기튀김!</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
@@ -11,7 +12,7 @@
         font-family: "IBM Plex Sans KR", sans-serif;
       }
       body {
-        background-color: white;
+        background-color: #eaeaea;
         display: flex;
         flex-direction: column;
       }
@@ -68,33 +69,58 @@
       }
       .teamtitle {
         margin-top: 100px;
-        background-color: green;
         height: 100px;
+        font-size: 40px;
+        line-height: 100px;
+      }
+      p {
+        font-size: 30px;
       }
 
       .profile {
         display: flex;
-        flex-grow: 1;
-        background-color: green;
-        padding: 20px;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px;
         align-items: center;
       }
-      .profileimage {
-        flex: 1;
+
+      .row {
         display: flex;
         justify-content: center;
-        align-items: center;
+        gap: 50px;
       }
-      .profileinfo {
-        flex: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        justify-content: flex-start;
-        align-items: flex-start; 
+
+      .form-control {
+        flex: 1;
+        min-width: 150px;
+        max-width: 200px;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 8px;
+        border: none;
+      }
+
+      .joinbtn {
+        margin-top: 30px;
+        width: 600px;
+        height: 50px;
+        font-size: 30px;
+        border-radius: 8px;
       }
     </style>
+    <script>
+      function join() {
+        let name = $("#inputname input").val();
+        let mbti = $("#inputmbti input").val();
+        let goal = $("#inputgoal input").val();
+        let bt = $("#inputbloodtype input").val();
+        let blog = $("#inputblog input").val();
+        let image = $("#inputimageurl input").val();
+
+        console.log(name, mbti, goal, bt, blog, image);
+      }
+    </script>
   </head>
   <body>
     <div class="header">
@@ -111,20 +137,58 @@
       </div>
     </div>
     <div class="content">
-      <!-- 이 div 안에 본문 내용 적어주시면 됩니다!!!! -->
-      <!-- 위의 내용은 헤더 내용입니다! -->
       <h1 class="teamtitle">팀원 합류하기!!</h1>
       <div id="information" class="information">
         <div class="profile">
-          <div class="profileimage">
-            
+          <div class="row">
+            <div id="inputname">
+              <p>Your Name</p>
+              <input type="text" class="form-control" placeholder="Name" />
+            </div>
+            <div id="inputgoal">
+              <p>Goal</p>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="ex) 코딩 마스터가 되겠습니다"
+              />
+            </div>
           </div>
-          <div class="profileinfo"></div>
-            <input type="text" placeholder="이름" />
-            <input type="text" placeholder="혈액형" />
-            <input type="text" placeholder="MBTI" />
-            <input type="text" placeholder="기타 정보" />
+          <div class="row">
+            <div id="inputbloodtype">
+              <p>Blood Type</p>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="A / B / O / AB"
+              />
+            </div>
+            <div id="inputmbti">
+              <p>MBTI</p>
+              <input type="text" class="form-control" placeholder="MBTI" />
+            </div>
           </div>
+          <div class="row">
+            <div id="inputblog">
+              <p>Blog Url</p>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="블로그 주소"
+              />
+            </div>
+            <div id="inputimageurl">
+              <p>Image Url</p>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="이미지 주소"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="createbutton">
+          <button onclick="join()" class="joinbtn">Join</button>
         </div>
       </div>
     </div>
