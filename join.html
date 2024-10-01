@@ -66,6 +66,34 @@
         font-size: 30px;
         color: #6799ff;
       }
+      .teamtitle {
+        margin-top: 100px;
+        background-color: green;
+        height: 100px;
+      }
+
+      .profile {
+        display: flex;
+        flex-grow: 1;
+        background-color: green;
+        padding: 20px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .profileimage {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .profileinfo {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        justify-content: flex-start;
+        align-items: flex-start; 
+      }
     </style>
   </head>
   <body>
@@ -85,6 +113,20 @@
     <div class="content">
       <!-- 이 div 안에 본문 내용 적어주시면 됩니다!!!! -->
       <!-- 위의 내용은 헤더 내용입니다! -->
+      <h1 class="teamtitle">팀원 합류하기!!</h1>
+      <div id="information" class="information">
+        <div class="profile">
+          <div class="profileimage">
+            
+          </div>
+          <div class="profileinfo"></div>
+            <input type="text" placeholder="이름" />
+            <input type="text" placeholder="혈액형" />
+            <input type="text" placeholder="MBTI" />
+            <input type="text" placeholder="기타 정보" />
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
