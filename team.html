@@ -26,13 +26,13 @@
         flex-direction: column;
       }
       .sidebar {
-        position: fixed;
         height: 100vh;
-        width: 30vh;
+        width: 15%;
         background-color: #eaeaea;
         display: flex;
         flex-direction: column;
         border-radius: 5px;
+        float: left;
       }
       .main {
         height: 200px;
@@ -49,6 +49,8 @@
         margin: auto auto auto auto;
         align-content: space-between;
         color: #5d5d5d;
+        text-align: center;
+        word-break: break-all;
       }
       a {
         text-align: center;
@@ -60,10 +62,12 @@
         margin: 50px;
         font-size: 30px;
       }
+
       .content {
-        margin-left: 300px;
         padding: 0 auto;
         text-align: center;
+        width: 85%;
+        float: right;
       }
       .image {
         text-align: center;
@@ -76,7 +80,7 @@
         color: #6799ff;
       }
       .text_in {
-        background-color: green;
+        background-color: #eaeaea;
         margin: 10vh 30vh 0 30vh;
         border-radius: 8px;
         height: 800px;
@@ -86,39 +90,41 @@
     </style>
   </head>
   <body>
-    <div class="sidebar">
-      <div class="main">
-        <h1>
-          <a href="./index.html">손말이고기튀김</a>
-        </h1>
+    <div>
+      <div class="sidebar">
+        <div class="main">
+          <h1>
+            <a href="./index.html">손말이고기튀김</a>
+          </h1>
+        </div>
+        <div class="menu">
+          <a class="items_1" href="./team.html">TEAM</a>
+          <a class="items" href="./members.html">MEMBERS</a>
+          <a class="items" href="./join.html">JOIN</a>
+          <a class="items" href="./news.html">NEWS</a>
+        </div>
       </div>
-      <div class="menu">
-        <a class="items_1" href="./team.html">TEAM</a>
-        <a class="items" href="./members.html">MEMBERS</a>
-        <a class="items" href="./join.html">JOIN</a>
-        <a class="items" href="./news.html">NEWS</a>
-      </div>
-    </div>
-    <div class="content">
-      <div class="text_in">
-        <br />
-        ✨손말이고기튀김 팀을 소개합니다✨
-        <br /><br /><br />
-        저희는 팀 손말이 고기튀김으로, 리더 김영웅, 팀원 김태훈, 김동건, 박예진,
-        손민석 으로 구성되어있습니다!
-        <br /><br />
-        각자 좋아하는 음식을 하나씩 말하고, 그중에서 두가지 음식을 사다리 타기로
-        결정해 팀 이름을 정하게 되었습니다
-        <br /><br />
-        팀 이름 뿐만 아니라 리더나 기타 등등의 사안을 사다리 타기로 결정해,
-        <br />
-        빠른 결정이 가능하다는 특징이 있는 팀입니다😏
-        <br /><br />
-        저희가 팀에서 추구하는 목표는 다들 열심히 해서 대기업에서 만나기!!
-        입니다
-        <br /><br />
-        서로 미숙하지만 함께 소통하며 열심히 행동하는 방향으로 노력하고
-        있습니다!
+      <div class="content">
+        <div class="text_in">
+          <br />
+          ✨손말이고기튀김 팀을 소개합니다✨
+          <br /><br /><br />
+          저희는 팀 손말이 고기튀김으로, 리더 김영웅, 팀원 김태훈, 김동건,
+          박예진, 손민석 으로 구성되어있습니다!
+          <br /><br />
+          각자 좋아하는 음식을 하나씩 말하고, 그중에서 두가지 음식을 사다리
+          타기로 결정해 팀 이름을 정하게 되었습니다
+          <br /><br />
+          팀 이름 뿐만 아니라 리더나 기타 등등의 사안을 사다리 타기로 결정해,
+          <br />
+          빠른 결정이 가능하다는 특징이 있는 팀입니다😏
+          <br /><br />
+          저희가 팀에서 추구하는 목표는 다들 열심히 해서 대기업에서 만나기!!
+          입니다
+          <br /><br />
+          서로 미숙하지만 함께 소통하며 열심히 행동하는 방향으로 노력하고
+          있습니다!
+        </div>
       </div>
     </div>
   </body>
