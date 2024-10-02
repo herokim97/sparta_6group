@@ -169,15 +169,16 @@
     }
   </style>
   <script type="module">
-
     // firebase 초기화 시작
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import {
       collection,
       getDocs,
+      orderBy,
+      query,
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
+  
     const firebaseConfig = {
       apiKey: "AIzaSyDvqOAD63A5M-QNMILUwy7sWlVV7h7i2gQ",
       authDomain: "sparta-31f56.firebaseapp.com",
@@ -187,21 +188,23 @@
       appId: "1:71365977063:web:668bf73d964f6263679342",
       measurementId: "G-6BTK1GXF5B",
     };
-
+  
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     // firebase 초기화 끝
-
+  
     document.addEventListener("DOMContentLoaded", async function () {
       // Firebase 데이터 불러오기 및 카드 생성
       async function loadMembers() {
         let membersCollection = collection(db, "teamIntroduce");
-        let docs = await getDocs(membersCollection);
-
+        // 타임스탬프 필드로 오름차순 정렬
+        let membersQuery = query(membersCollection, orderBy("time"));
+        let docs = await getDocs(membersQuery);
+  
         docs.forEach((doc) => {
           let row = doc.data();
           let { image, name, mbti, goal, blog, github } = row;
-
+  
           // 카드 HTML 동적 생성
           let cardHtml = `
           <div class="col">
@@ -218,27 +221,27 @@
               </div>
             </div>
           </div>`;
+          
           // 카드를 .mycards .row 안에 삽입
           document.querySelector('.mycards .row').insertAdjacentHTML('beforeend', cardHtml);
         });
+  
+        // joinBtn 추가
+        let joinBtn = `
+        <div class="col">
+          <div class="joinbtn">
+            <a href="./join.html">
+              <img src="https://github.com/herokim97/sparta_6group/blob/main/image/joinbtn.png?raw=true" class="card-img" alt="Join">
+            </a>
+          </div>
+        </div>`;
+        
+        document.querySelector('.mycards .row').insertAdjacentHTML('beforeend', joinBtn);
       }
-
+  
       loadMembers();
-
-      
     });
-    let joinBtn = `
-            <div class="col">
-              <div class="joinbtn">
-                <a href="./join.html">
-                  <img src="https://github.com/herokim97/sparta_6group/blob/main/image/joinbtn.png?raw=true" class="card-img" alt="Join">
-                </a>
-              </div>
-            </div>`;
-      $("#mycards .row").append(joinBtn);
-
-
-
+  
     // 모달에 데이터 표시 함수
     window.showDetail = function (image, name, mbti, goal, blog, github) {
       // 모달의 각 요소에 데이터 삽입
@@ -248,12 +251,13 @@
       document.getElementById("modalGoal").innerText = goal;
       document.getElementById("modalBlog").href = blog;
       document.getElementById("modalGithub").href = github;
-
+  
       // 모달을 표시
       var detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
       detailModal.show();
     }
   </script>
+  
 </head>
 
 <body>
@@ -274,15 +278,7 @@
     <div class="content">
       <div class="mycards">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="joinbtn">
-            <a href="./join.html">
-              <img
-                src="https://github.com/herokim97/sparta_6group/blob/main/image/joinbtn.png?raw=true"
-                class="card-img"
-                alt="..."
-              />
-            </a>
-          </div>
+          
           <!-- Firebase에서 불러온 카드가 여기에 추가됩니다 -->
 
         </div>
