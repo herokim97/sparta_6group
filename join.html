@@ -19,7 +19,7 @@
         font-style: normal;
       }
       body {
-        background-color: #eaeaea;
+        background-color: white;
         display: flex;
         flex-direction: column;
       }
@@ -118,7 +118,7 @@
         height: 60px;
         font-size: 30px;
         border: none;
-        background-color: #fff;
+        background-color: #eaeaea;
         border-radius: 8px;
         cursor: pointer;
         margin-left: 130px;
@@ -153,7 +153,8 @@
         let github = $("#inputgithuburl").val() || "사용하지않음";
         let blog = $("#inputblogurl").val();
         let image = $("#inputimageurl").val();
-
+        let date = new Date();
+        console.log(date);
         if (!name || !mbti || !goal || !github || !blog || !image) {
           alert("입력을 다 안하셨네요");
           return;
@@ -168,6 +169,7 @@
           github: github,
           blog: blog,
           image: image,
+          time: date,
         };
         await addDoc(collection(db, "teamIntroduce"), doc);
         window.location.replace("members.html");
@@ -193,7 +195,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <label for="inputName" class="form-label">Your Name</label>
+        <label for="inputname" class="form-label">Your Name</label>
         <input
           type="text"
           id="inputname"
@@ -202,7 +204,7 @@
         />
       </div>
       <div class="col">
-        <label for="inputGoal" class="form-label">Goal</label>
+        <label for="inputgoal" class="form-label">Goal</label>
         <input
           type="text"
           id="inputgoal"
@@ -222,7 +224,7 @@
         />
       </div>
       <div class="col">
-        <label for="inputGoal" class="form-label">Profile Image</label>
+        <label for="inputimageurl" class="form-label">Profile Image</label>
         <input
           type="text"
           id="inputimageurl"
@@ -233,7 +235,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <label for="inputName" class="form-label">Blog Url</label>
+        <label for="inputblogurl" class="form-label">Blog Url</label>
         <input
           type="text"
           id="inputblogurl"
@@ -242,7 +244,7 @@
         />
       </div>
       <div class="col">
-        <label for="inputGoal" class="form-label">Github Url</label>
+        <label for="inputgithuburl" class="form-label">Github Url</label>
         <input
           type="text"
           id="inputgithuburl"
