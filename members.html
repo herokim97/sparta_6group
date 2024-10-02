@@ -25,14 +25,15 @@
         display: flex;
         flex-direction: column;
       }
+
       .sidebar {
+        position: fixed;
         height: 100vh;
-        width: 15%;
+        width: 30vh;
         background-color: #eaeaea;
         display: flex;
         flex-direction: column;
         border-radius: 5px;
-        float: left;
       }
 
       .main {
@@ -51,8 +52,6 @@
         margin: auto auto auto auto;
         align-content: space-between;
         color: #5d5d5d;
-        text-align: center;
-        word-break: break-all;
       }
 
       a {
@@ -67,10 +66,9 @@
       }
 
       .content {
+        margin-left: 300px;
         padding: 0 auto;
         text-align: center;
-        width: 85%;
-        float: right;
       }
 
       .image {
@@ -86,6 +84,7 @@
 
       .mycards {
         width: 1300px;
+
         margin: 150px auto 20px auto;
       }
 
@@ -106,146 +105,205 @@
         margin: 50px 0px 0px 25px;
       }
     </style>
-    <script></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import {
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+      import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDvqOAD63A5M-QNMILUwy7sWlVV7h7i2gQ",
+        authDomain: "sparta-31f56.firebaseapp.com",
+        projectId: "sparta-31f56",
+        storageBucket: "sparta-31f56.appspot.com",
+        messagingSenderId: "71365977063",
+        appId: "1:71365977063:web:668bf73d964f6263679342",
+        measurementId: "G-6BTK1GXF5B",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      let dataArr = [];
+      let docs = await getDocs(collection(db, "teamIntroduce"));
+      docs.forEach((doc) => {
+        let row = doc.data();
+        dataArr.push(row);
+      });
+      console.log(dataArr);
+
+      dataArr.sort(function (a, b) {
+        if (a.time > b.time) return 1;
+        if (a.time === b.time) return 0;
+        if (a.time < b.time) return -1;
+      });
+
+      console.log(dataArr);
+
+      dataArr.forEach((dataArr) => {
+        let name = dataArr["name"];
+        let mbti = dataArr["mbti"];
+        let goal = dataArr["goal"];
+        let github = dataArr["github"];
+        let blog = dataArr["blog"];
+        let image = dataArr["image"];
+
+        let temp = `
+    <div class="col">
+      <div class="card bg-transparent text-dark">
+        <img src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true" class="card-img" alt="...">
+        <div class="card-img-overlay">
+          <a href="./join.html">
+            <img src="${image}" class="card-img" alt="...">
+          </a>
+        </div>
+        <div class="card-footer"> 
+          <h5 class="card-title">${name}</h5>
+        </div>
+      </div>
+    </div>`;
+
+        $("#mycards .row").append(temp);
+      });
+      let joinBtn = `
+            <div class="col">
+              <div class="joinbtn">
+                <a href="./join.html">
+                  <img src="https://github.com/herokim97/sparta_6group/blob/main/image/joinbtn.png?raw=true" class="card-img" alt="Join">
+                </a>
+              </div>
+            </div>`;
+      $("#mycards .row").append(joinBtn);
+    </script>
   </head>
 
   <body>
-    <div>
-      <div class="sidebar">
-        <div class="main">
-          <h1>
-            <a href="./index.html">손말이고기튀김</a>
-          </h1>
-        </div>
-        <div class="menu">
-          <a class="items" href="./team.html">TEAM</a>
-          <a class="items_1" href="./members.html">MEMBERS</a>
-          <a class="items" href="./join.html">JOIN</a>
-          <a class="items" href="./news.html">NEWS</a>
-        </div>
+    <div class="sidebar">
+      <div class="main">
+        <h1>
+          <a href="./index.html">손말이고기튀김</a>
+        </h1>
       </div>
-      <div class="content">
-        <div class="mycards">
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card bg-transparent text-dark">
-                <img
-                  src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
-                  class="card-img"
-                  alt="..."
-                />
-                <div class="card-img-overlay">
-                  <a href="./join.html">
-                    <img
-                      src="https://ca.slack-edge.com/T06B9PCLY1E-U07MCEM6352-98ecce4c5f73-512"
-                      class="card-img"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div class="card-footer">
-                  <!--이게 색깔 -->
-                  <h5 class="card-title">김영웅</h5>
-                </div>
+      <div class="menu">
+        <a class="items" href="./team.html">TEAM</a>
+        <a class="items_1" href="./members.html">MEMBERS</a>
+        <a class="items" href="./join.html">JOIN</a>
+        <a class="items" href="./news.html">NEWS</a>
+      </div>
+    </div>
+    <div class="content">
+      <div id="mycards" class="mycards">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card bg-transparent text-dark">
+              <img
+                src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
+                class="card-img"
+                alt="..."
+              />
+              <div class="card-img-overlay">
+                <a href="./join.html">
+                  <img
+                    src="https://ca.slack-edge.com/T06B9PCLY1E-U07MCEM6352-98ecce4c5f73-512"
+                    class="card-img"
+                    alt="..."
+                  />
+                </a>
+              </div>
+              <div class="card-footer">
+                <!--이게 색깔 -->
+                <h5 class="card-title">김영웅</h5>
               </div>
             </div>
-            <div class="col">
-              <div class="card bg-transparent text-dark">
-                <img
-                  src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
-                  class="card-img"
-                  alt="..."
-                />
-                <div class="card-img-overlay">
-                  <a href="./join.html">
-                    <img
-                      src="https://ca.slack-edge.com/T06B9PCLY1E-U07KM5EUL9X-bdbc661243e4-512"
-                      class="card-img"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div class="card-footer">
-                  <!--이게 색깔 -->
-                  <h5 class="card-title">김동건</h5>
-                </div>
+          </div>
+          <div class="col">
+            <div class="card bg-transparent text-dark">
+              <img
+                src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
+                class="card-img"
+                alt="..."
+              />
+              <div class="card-img-overlay">
+                <a href="./join.html">
+                  <img
+                    src="https://ca.slack-edge.com/T06B9PCLY1E-U07KM5EUL9X-bdbc661243e4-512"
+                    class="card-img"
+                    alt="..."
+                  />
+                </a>
+              </div>
+              <div class="card-footer">
+                <!--이게 색깔 -->
+                <h5 class="card-title">김동건</h5>
               </div>
             </div>
-            <div class="col">
-              <div class="card bg-transparent text-dark">
-                <img
-                  src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
-                  class="card-img"
-                  alt="..."
-                />
-                <div class="card-img-overlay">
-                  <a href="./join.html">
-                    <img
-                      src="https://ca.slack-edge.com/T06B9PCLY1E-U07M2T2SM8W-271092b084ed-512"
-                      class="card-img"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div class="card-footer">
-                  <!--이게 색깔 -->
-                  <h5 class="card-title">김태훈</h5>
-                </div>
+          </div>
+          <div class="col">
+            <div class="card bg-transparent text-dark">
+              <img
+                src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
+                class="card-img"
+                alt="..."
+              />
+              <div class="card-img-overlay">
+                <a href="./join.html">
+                  <img
+                    src="https://ca.slack-edge.com/T06B9PCLY1E-U07M2T2SM8W-271092b084ed-512"
+                    class="card-img"
+                    alt="..."
+                  />
+                </a>
+              </div>
+              <div class="card-footer">
+                <!--이게 색깔 -->
+                <h5 class="card-title">김태훈</h5>
               </div>
             </div>
-            <div class="col">
-              <div class="card bg-transparent text-dark">
-                <img
-                  src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
-                  class="card-img"
-                  alt="..."
-                />
-                <div class="card-img-overlay">
-                  <a href="./join.html">
-                    <img
-                      src="https://ca.slack-edge.com/T06B9PCLY1E-U07JMCYEYSV-c992fcb2c0a0-512"
-                      class="card-img"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div class="card-footer">
-                  <!--이게 색깔 -->
-                  <h5 class="card-title">박예진</h5>
-                </div>
+          </div>
+          <div class="col">
+            <div class="card bg-transparent text-dark">
+              <img
+                src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
+                class="card-img"
+                alt="..."
+              />
+              <div class="card-img-overlay">
+                <a href="./join.html">
+                  <img
+                    src="https://ca.slack-edge.com/T06B9PCLY1E-U07JMCYEYSV-c992fcb2c0a0-512"
+                    class="card-img"
+                    alt="..."
+                  />
+                </a>
+              </div>
+              <div class="card-footer">
+                <!--이게 색깔 -->
+                <h5 class="card-title">박예진</h5>
               </div>
             </div>
-            <div class="col">
-              <div class="card bg-transparent text-dark">
-                <img
-                  src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
-                  class="card-img"
-                  alt="..."
-                />
-                <div class="card-img-overlay">
-                  <a href="./join.html">
-                    <img
-                      src="https://ca.slack-edge.com/T06B9PCLY1E-U07HF45H6LW-88cc535fc5e5-512"
-                      class="card-img"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div class="card-footer">
-                  <!--이게 색깔 -->
-                  <h5 class="card-title">손민석</h5>
-                </div>
+          </div>
+          <div class="col">
+            <div class="card bg-transparent text-dark">
+              <img
+                src="https://github.com/herokim97/sparta_6group/blob/main/image/back.png?raw=true"
+                class="card-img"
+                alt="..."
+              />
+              <div class="card-img-overlay">
+                <a href="./join.html">
+                  <img
+                    src="https://ca.slack-edge.com/T06B9PCLY1E-U07HF45H6LW-88cc535fc5e5-512"
+                    class="card-img"
+                    alt="..."
+                  />
+                </a>
               </div>
-            </div>
-
-            <div class="joinbtn">
-              <a href="./join.html">
-                <img
-                  src="https://github.com/herokim97/sparta_6group/blob/main/image/joinbtn.png?raw=true"
-                  class="card-img"
-                  alt="..."
-                />
-              </a>
+              <div class="card-footer">
+                <!--이게 색깔 -->
+                <h5 class="card-title">손민석</h5>
+              </div>
             </div>
           </div>
         </div>
