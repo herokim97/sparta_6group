@@ -1,0 +1,84 @@
+<!-- detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-name">Name</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modal-image" src="" class="img-fluid mb-3" alt="Profile Image" />
+          <p><strong>MBTI:</strong> <span id="modal-mbti"></span></p>
+          <p><strong>Goal:</strong> <span id="modal-goal"></span></p>
+          <p><strong>Blog:</strong> <a href="" id="modal-blog" target="_blank">Visit Blog</a></p>
+          <p><strong>GitHub:</strong> <a href="" id="modal-github" target="_blank">Visit GitHub</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // URL에서 데이터 가져오기
+    function getUrlParams() {
+      let params = new URLSearchParams(window.location.search);
+      return {
+        image: params.get('image'),
+        name: params.get('name'),
+        mbti: params.get('mbti'),
+        goal: params.get('goal'),
+        blog: params.get('blog'),
+        github: params.get('github'),
+      };
+    }
+
+    // 모달에 데이터 삽입하는 함수
+    function populateModal(data) {
+      document.getElementById('modal-name').textContent = data.name;
+      document.getElementById('modal-image').src = data.image;
+      document.getElementById('modal-mbti').textContent = data.mbti;
+      document.getElementById('modal-goal').textContent = data.goal;
+      document.getElementById('modal-blog').href = data.blog;
+      document.getElementById('modal-github').href = data.github;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let memberData = getUrlParams();
+      populateModal(memberData);
+
+      // 모달 자동 띄우기
+      let modal = new bootstrap.Modal(document.getElementById('memberModal'));
+      modal.show();
+    });
+
+    function showDetail(name, mbti, goal, blog, github) {
+  // Set the iframe source to detail.html with query parameters
+  document.getElementById("modalFrame").src = `detail.html?name=${encodeURIComponent(name)}&mbti=${encodeURIComponent(mbti)}&goal=${encodeURIComponent(goal)}&blog=${encodeURIComponent(blog)}&github=${encodeURIComponent(github)}`;
+  
+  // Show the modal
+  var detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
+  detailModal.show();
+}
+
+  </script>
+
+</body>
+
+</html>
