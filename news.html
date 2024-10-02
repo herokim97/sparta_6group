@@ -26,13 +26,13 @@
         flex-direction: column;
       }
       .sidebar {
-        position: fixed;
         height: 100vh;
-        width: 30vh;
+        width: 15%;
         background-color: #eaeaea;
         display: flex;
         flex-direction: column;
         border-radius: 5px;
+        float: left;
       }
       .main {
         height: 200px;
@@ -49,6 +49,8 @@
         margin: auto auto auto auto;
         align-content: space-between;
         color: #5d5d5d;
+        text-align: center;
+        word-break: break-all;
       }
       a {
         text-align: center;
@@ -60,10 +62,12 @@
         margin: 50px;
         font-size: 30px;
       }
+
       .content {
-        margin-left: 300px;
         padding: 0 auto;
         text-align: center;
+        width: 85%;
+        float: right;
       }
       .image {
         text-align: center;
@@ -78,22 +82,24 @@
     </style>
   </head>
   <body>
-    <div class="sidebar">
-      <div class="main">
-        <h1>
-          <a href="./index.html">손말이고기튀김</a>
-        </h1>
+    <div>
+      <div class="sidebar">
+        <div class="main">
+          <h1>
+            <a href="./index.html">손말이고기튀김</a>
+          </h1>
+        </div>
+        <div class="menu">
+          <a class="items" href="./team.html">TEAM</a>
+          <a class="items" href="./members.html">MEMBERS</a>
+          <a class="items" href="./join.html">JOIN</a>
+          <a class="items_1" href="./news.html">NEWS</a>
+        </div>
       </div>
-      <div class="menu">
-        <a class="items" href="./team.html">TEAM</a>
-        <a class="items" href="./members.html">MEMBERS</a>
-        <a class="items" href="./join.html">JOIN</a>
-        <a class="items_1" href="./news.html">NEWS</a>
+      <div class="content">
+        <!-- 이 div 안에 본문 내용 적어주시면 됩니다!!!! -->
+        <!-- 위의 내용은 헤더 내용입니다! -->
       </div>
-    </div>
-    <div class="content">
-      <!-- 이 div 안에 본문 내용 적어주시면 됩니다!!!! -->
-      <!-- 위의 내용은 헤더 내용입니다! -->
     </div>
   </body>
 </html>
