@@ -99,7 +99,13 @@
             width: 150px;
             height: 150px;
             border: 1px solid black;
+            overflow: hidden;
         }
+
+        .picture {
+            transform: scale(1.68);
+        }
+
         .col-md-8 {
             width : 600px;
             height: 150px;
@@ -125,13 +131,13 @@
             font-size: 25px;
         }
         .card-semititle {
-            margin-bottom: 5px;
             font-size: 20px;
             color: red;
         }
 
         .card-semitext {
             font-size: 15px;
+            vertical-align: middle;
         }
 
     </style>
@@ -155,12 +161,15 @@
         <div class="content">
             <div class="wrap">
                 <div class="title">
-                    <h1>손말이고기튀김조의 개인 블로그입니다</h1>
+                    <h1>손말이고기튀김조의 개인 블로그입니다</h1>                   
                 </div>
+            
                 <div class="card-mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="https://tistory1.daumcdn.net/tistory/7161620/attach/072bb77309f6456cbbcd95fe7a04b069" class="img-fluid rounded-start" alt="...">
+                            <div class="picture">
+                                <img src="https://tistory1.daumcdn.net/tistory/7161620/attach/072bb77309f6456cbbcd95fe7a04b069" class="img-fluid rounded-start" alt="...">
+                            </div>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -191,8 +200,7 @@
                         <div class="col-md-12">
                             <div class="card-body">
                                 <h5 class="card-semititle">블로그 소개글</h5>
-                                <p class="card-semitext">그냥 뭐.. 일단 해보는거죠 뭐.</p>
-                                <p class="card-semitext">쟤는 김초코입니다</p>
+                                <p class="card-semitext">머리가 나빠서 몸이 고생하는 사람</p>
                             </div>
                         </div>
 
