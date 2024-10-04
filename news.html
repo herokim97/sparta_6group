@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>!손말이고기튀김!</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <style>
         @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 
         * {
             font-family: "IBM Plex Sans KR", sans-serif;
+            font-weight: 500;
+            font-style: normal;
         }
 
         body {
@@ -20,20 +24,19 @@
             flex-direction: column;
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 300px;
+        .sidebar {
+            height: 100vh;
+            width: 15%;
             background-color: #eaeaea;
             display: flex;
             flex-direction: column;
             border-radius: 5px;
+            float: left;
         }
 
         .main {
             height: 200px;
+            margin-top: 13vh;
             line-height: 200px;
             text-align: center;
             color: #5d5d5d;
@@ -47,6 +50,8 @@
             margin: auto auto auto auto;
             align-content: space-between;
             color: #5d5d5d;
+            text-align: center;
+            word-break: break-all;
         }
 
         a {
@@ -61,11 +66,11 @@
         }
 
         .content {
-            margin-left: 850px;
             padding: 0 auto;
-            margin-top: 20px;
-            margin-bottom: 20px;
-
+            text-align: center;
+            width: 85%;
+            float: right;
+            margin-top: 30px;
         }
 
         .image {
@@ -80,41 +85,32 @@
         }
 
         .card-mb-3 {
-            margin-left: 500px;
-            display: flex;
-            justify-content: center;
+            margin-left: 200px;
             margin-bottom: 20px;
         }
 
-        .picture {
+
+        .col-md-4 {
             width: 150px;
             height: 150px;
-            float: left;
-            border: 2px solid black;
-
+            border: 1px solid black;
         }
-
-        .card-body {
-            width: 500px;
+        .col-md-8 {
+            width : 600px;
             height: 150px;
-            float: left;
-            border-left: none;
-            border-right: none;
-            border-top: 2px solid black;
-            border-bottom: 2px solid black;
-            text-align: center;
-
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
         }
-
-        .card-tale {
-            width: 350px;
+        .col-md-12 {
+            width: 400px;
             height: 150px;
-            float: left;
-            border: 2px solid black;
+            border: 1px solid black;
+        }
+        .title {
+            margin-bottom: 30px;
         }
         .card-title {
-            line-height: 60px;
-            text-align: center;
+            margin-top: 10px;
             color: rgb(173, 43, 173);
             font-size: 30px;
         }
@@ -124,128 +120,142 @@
             font-size: 25px;
         }
         .card-semititle {
-          text-align: center;
-          margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 25px;
+            color: red;
         }
+
         .card-semitext {
-            text-align: center;
-            margin-top: auto 0px auto 0px;
+            margin-bottom: 5px;
+            font-size: 20px;
         }
+
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div class="main">
-            <h1>
-                <a href="./index.html">손말이고기튀김</a>
-            </h1>
-        </div>
-        <div class="menu">
-            <a class="items" href="./team.html">TEAM</a>
-            <a class="items" href="./members.html">MEMBERS</a>
-            <a class="items" href="./join.html">JOIN</a>
-            <a class="items_1" href="./news.html">NEWS</a>
-        </div>
-    </div>
-    <div class="content">
-        <h1>손말이고기튀김조의 개인 블로그입니다</h1>
-    </div>
-    <div class="wrap">
-        <div class="card-mb-3" style="max-width: 1500px;">
-            <div class="picture">
-                <img src="https://tistory1.daumcdn.net/tistory/7161620/attach/072bb77309f6456cbbcd95fe7a04b069"
-                    class="img-fluid rounded-start" alt="...">
+    <div>
+        <div class="sidebar">
+            <div class="main">
+                <h1>
+                    <a href="./index.html">손말이고기튀김</a>
+                </h1>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="https://redbull97.tistory.com/">김영웅 팀장 블로그 바로가기</a>
-                    </h5>
-                    <p class="card-text"><a href=https://redbull97.tistory.com/6>블로그 글 보러 가기</p>
-
-                </div>
-                <div class="card-tale">
-                    <h5 class="card-semititle">블로그 소개글</h5>
-                    <p class="card-semitext">그냥 뭐.. 일단 해보는거죠 뭐.</p> 
-                    <p>재는 막내 김초코 입니다</p>
-                </div>
+            <div class="menu">
+                <a class="items" href="./team.html">TEAM</a>
+                <a class="items" href="./members.html">MEMBERS</a>
+                <a class="items" href="./join.html">JOIN</a>
+                <a class="items_1" href="./news.html">NEWS</a>
             </div>
         </div>
-        <div class="card-mb-3" style="max-width: 1500px;">
-            <div class="picture">
-                <img src="https://tistory1.daumcdn.net/tistory/7342939/attach/6b1e16d2c6a749098c11d339547527bf"
-                    class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="https://view0576.tistory.com/">김태훈 팀원 블로그 바로가기</a>
-                    </h5>
-                    <p class="card-text"><a href=https://view0576.tistory.com/5>블로그 글 보러 가기</p>
+        <div class="content">
+            <div class="wrap">
+                <div class="title">
+                    <h1>손말이고기튀김조의 개인 블로그입니다</h1>
+                </div>
+                <div class="card-mb-3" style="max-width: 1170px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://tistory1.daumcdn.net/tistory/7161620/attach/072bb77309f6456cbbcd95fe7a04b069" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="https://redbull97.tistory.com/">김영웅 팀장 블로그 바로가기</a></h5>
+                                <p class="card-text"><a href=https://redbull97.tistory.com/6>블로그 글 보러 가기</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-semititle">블로그 소개글</h5>
+                                <p class="card-semitext">그냥 뭐.. 일단 해보는거죠 뭐.</p>
+                                <p class="card-semitext">쟤는 김초코입니다</p>
+                            </div>
+                        </div>
 
-                </div>
-                <div class="card-tale">
-                    <h5 class="card-semititle">블로그 소개글</h5>
-                    <p class="card-semitext">머리가 나빠서 몸이 고생하는 사람</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-mb-3" style="max-width: 1500px;">
-            <div class="picture">
-                <img src="https://velog.velcdn.com/images/qkrdpwls2002/post/e3f955f4-823b-4717-a1e3-0186d2d5caf2/image.jpg"
-                    class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="https://velog.io/@qkrdpwls2002/posts">박예진 팀원 블로그 바로가기</a>
-                    </h5>
-                    <p class="card-text"><a href=https://velog.io/@qkrdpwls2002/241001-%EB%82%B4%EB%B0%B0%EC%BA%A0>블로그 글 보러 가기</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://tistory1.daumcdn.net/tistory/7342939/attach/6b1e16d2c6a749098c11d339547527bf" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="https://view0576.tistory.com/">김태훈 팀원 블로그 바로가기</a></h5>
+                                <p class="card-text"><a href=https://view0576.tistory.com/5>블로그 글 보러 가기</a></p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-semititle">블로그 소개글</h5>
+                                <p class="card-semitext">그냥 뭐.. 일단 해보는거죠 뭐.</p>
+                                <p class="card-semitext">쟤는 김초코입니다</p>
+                            </div>
+                        </div>
 
-                </div>
-                <div class="card-tale">
-                    <h5 class="card-semititle">블로그 소개글</h5>
-                    <p class="card-semitext">개발자로서 홀로서기를 목표중입니다!!!</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://velog.velcdn.com/images/qkrdpwls2002/post/e3f955f4-823b-4717-a1e3-0186d2d5caf2/image.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="https://velog.io/@qkrdpwls2002/posts">박예진 팀원 블로그 바로가기</a></h5>
+                                <p class="card-text"><p class="card-text"><a
+                                    href=https://velog.io/@qkrdpwls2002/241001-%EB%82%B4%EB%B0%B0%EC%BA%A0>블로그 글 보러 가기</a></p>
+    
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-semititle">블로그 소개글</h5>
+                                <p class="card-semitext">개발자로서 홀로서기를 목표중입니다!!!</p>
 
-                      <p>계속 공부하는 습관을 들이는 것✨</p>
-                      <p>타인과 협업하는 방식을 계속 개선해 나가는것😚</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-mb-3" style="max-width: 1500px;">
-            <div class="picture">
-                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdbqqEM%2FbtsJThKTf1q%2FOL7kJlvVGnKa6oKQ290ruk%2Fimg.png"
-                    class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="https://usejava.tistory.com">손민석 팀원 블로그 바로가기</a>
-                    </h5>
-                    <p class="card-text"><a href=https://usejava.tistory.com/18>블로그 글 보러 가기</p>
+                                <p class="card-semitext">계속 공부하는 습관을 들이는 것✨</p>
+                                <p class="card-semitext">타인과 협업하는 방식을 계속 개선해 나가는것😚</p>
+                            </div>
+                        </div>
 
-                </div>
-                <div class="card-tale">
-                    <h5 class="card-semititle">블로그 소개글</h5>
-                    <p class="card-semitext">내가 보려고 만든 페이지</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-mb-3" style="max-width: 1500px;">
-            <div class="picture">
-                <img src="https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F7312335%2Fattach%2F97ee5801db124ad38d9bf03ff279ee31"
-                    class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="https://codinggeony.tistory.com">김동건 조원 블로그 바로가기</a>
-                    </h5>
-                    <p class="card-text"><a href=https://codinggeony.tistory.com/4>블로그 글 보러 가기</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdbqqEM%2FbtsJThKTf1q%2FOL7kJlvVGnKa6oKQ290ruk%2Fimg.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="https://usejava.tistory.com">손민석 팀원 블로그 바로가기</a></h5>
+                                <p class="card-text"><a href=https://usejava.tistory.com/18>블로그 글 보러 가기</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-semititle">블로그 소개글</h5>
+                                <p class="card-semitext">내가 보려고 만든 페이지</p>
+                            </div>
+                        </div>
 
-                </div>
-                <div class="card-tale">
-                    <h5 class="card-semititle">블로그 소개글</h5>
-                    <p class="card-semitext">역량 향상을 위해 엉덩이를 무겁게!</p>
-                    <p> 반려 도마뱀들 먹여 살리자!</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F7312335%2Fattach%2F97ee5801db124ad38d9bf03ff279ee31" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="https://codinggeony.tistory.com">김동건 조원 블로그 바로가기</a></h5>
+                                <p class="card-text"><a href=https://codinggeony.tistory.com/4>블로그 글 보러 가기</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-semititle">블로그 소개글</h5>
+                                <p class="card-semitext">역량 향상을 위해 엉덩이를 무겁게!</p>
+                                <p class="card-semitext"> 반려 도마뱀들 먹여 살리자!</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>
